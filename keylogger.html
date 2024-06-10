@@ -4,43 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .container{
-            display:flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top:50px;
-        }
-        #log,#state{
-            width: 500px;
-            height:50px;
-           
-            border:2px solid black;
-            padding:10px;
-            font-size: 20px;
-            text-align: center;
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-        #log{
-            background-color: coral;
-        }
-        #state{
-            background-color: cadetblue;
-        }
-        #buttons{
-            display:flex;
-            flex-direction: row;
-            padding: 10px;
-        }
-        .buttonContainer{
-            font-size: 20px;
-            padding:10px 20px;
-            margin-right: 20px;
-           
-        }
-        
-    </style>
+   <link href="keylogger.js">
+   <link href="keylogger.css">
 </head>
 <body>
     <div class="container">
@@ -54,35 +19,6 @@
             <div id="state"></div>
         </div>
     </div>
-    <script>
-        const log = document.getElementById("log");
-        const state = document.getElementById("state");
-        const startbtn = document.getElementById("startbtn");
-        const stopbtn = document.getElementById("stopbtn");
-        startbtn.addEventListener("click",()=>{
-            document.addEventListener("keydown",handleDown);
-            document.addEventListener("keyup",handleUp);
-            startbtn.disabled= true;
-            stopbtn.disabled= false;
-
-        })
-        stopbtn.addEventListener("click",()=>{
-            document.removeEventListener("keydown",handleDown);
-            document.removeEventListener("keyup",handleUp);
-            log.textContent = "";
-            state.textContent = "";
-            startbtn.disabled= false;
-            stopbtn.disabled= true;
-        })
-        function handleDown(e){
-            log.textContent = `Key ${e.key} is pressed down`;
-            state.textContent = "Key is down";
-        }
-        function handleUp(e){
-            log.textContent = `Key ${e.key} is pressed up`;
-            state.textContent = "Key is up";
-        }
-
-    </script>
+   
 </body>
 </html>
